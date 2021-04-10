@@ -6,6 +6,7 @@ import { claimDict } from "api/claimTable";
 import { css } from "@emotion/css";
 import { NavLink, Route } from "react-router-dom";
 import Claim from "./component/Table/Claim";
+import { MonthPicker } from "./component/Monthpicker";
 
 const ITEMS = [
   { id: 0, item: "Алтайский край" },
@@ -18,6 +19,10 @@ const ITEMS = [
 
 const onClickSearchButton = (items) => {
   window.alert(items.map((e) => e.item));
+};
+
+const onClickHandler = (firstDate, secondDate) => {
+  alert(firstDate + secondDate);
 };
 
 const SLIDE_ITEMS_DATA = [
@@ -123,6 +128,12 @@ function App() {
             <div style={{ height: 200 }}>
               <h3>Таблица</h3>
               <NavLink to="/table">Перейти на страницу таблицы</NavLink>
+            </div>
+            <div>
+              <h3>Monthpicker</h3>
+              <div>
+                <MonthPicker onClickHandler={onClickHandler} />
+              </div>
             </div>
           </div>
         )}
